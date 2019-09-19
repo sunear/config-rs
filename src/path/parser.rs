@@ -26,7 +26,7 @@ named!(integer<CompleteStr, isize>,
 named!(ident<CompleteStr, Expression>, map!(raw_ident, Expression::Identifier));
 
 #[allow(cyclomatic_complexity)]
-fn postfix(expr: Expression) -> Box<Fn(CompleteStr) -> IResult<CompleteStr, Expression>> {
+fn postfix(expr: Expression) -> Box<dyn Fn(CompleteStr) -> IResult<CompleteStr, Expression>> {
     Box::new(move |i: CompleteStr| {
         alt!(
             i,

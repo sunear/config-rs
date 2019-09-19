@@ -94,7 +94,7 @@ where
     T: 'static,
     T: Sync + Send,
 {
-    fn clone_into_box(&self) -> Box<Source + Send + Sync> {
+    fn clone_into_box(&self) -> Box<dyn Source + Send + Sync> {
         Box::new((*self).clone())
     }
 

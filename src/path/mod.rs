@@ -152,7 +152,7 @@ impl Expression {
             },
 
             Expression::Subscript(ref expr, index) => {
-                let mut do_again = false;
+                let do_again = false;
                 match expr.get_mut_forcibly(root) {
                     Some(value) => {
                         match value.kind {
